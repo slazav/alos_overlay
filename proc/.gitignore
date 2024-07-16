@@ -1,0 +1,5 @@
+Makefile.deps
+*.tif
+*.o
+get_tile
+make_mask
