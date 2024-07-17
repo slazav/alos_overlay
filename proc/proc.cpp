@@ -21,13 +21,13 @@ get_alt_rng(const ImageR & dem, const int step){
   // build hystgram with 100m steps
   for (size_t x = 0; x<w; x++){
     for (size_t y = 0; y<h; y++){
-      uint8_t v = dem.get16(x,y)/step;
+      int16_t v = dem.get16(x,y)/step;
       cols[v] = cols.count(v) ? cols[v]+1 : 0;
     }
   }
   iPoint ret(+10000, -1000);
   for (const auto & c:cols){
-    if (c.first < -1000 || c.first>10000 || c.second<100) continue;
+    if (c.first < -1000/step || c.first>10000/step || c.second<100) continue;
     if (ret.x > c.first) ret.x = c.first;
     if (ret.y < c.first) ret.y = c.first;
   }
