@@ -21,7 +21,7 @@ ovl files can be used there to have access to the fixed data.
 
 Pamir mountains (part of N38E072), original and fixed data:
 
-![example 1](https://raw.githubusercontent.com/slazav/alos_overlay/master/ex.gif)
+![example 1](https://raw.githubusercontent.com/slazav/alos_overlay/main/ex.gif)
 
 
 
