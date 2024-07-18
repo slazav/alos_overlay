@@ -17,6 +17,8 @@
 #define ASTER_DIR "/mnt/disk/DEM/ASTER_V3/"
 #define VFT_DIR "/mnt/disk/DEM/VFP/"
 
+// N56E117 -> iPoint(117,56)
+iPoint parse_key(const std::string & key);
 
 // get altitude range for DEM data
 iPoint get_alt_rng(const ImageR & img, const int step=100);

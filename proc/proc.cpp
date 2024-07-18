@@ -12,6 +12,33 @@
 
 #include "proc.h"
 
+iPoint
+parse_key(const std::string & key){
+  iPoint p(0,0);
+  char mode = ' ';
+  for (const auto c:key){
+    if (c=='W' || c=='E'){
+      p.x=0; mode = c;
+      continue;
+    }
+    if (c=='N' || c=='S'){
+      p.y=0; mode = c;
+      continue;
+    }
+    if (c>='0' && c<'9'){
+      switch (mode){
+        case 'E': p.x = p.x*10 + (int)(c-'0'); break;
+        case 'W': p.x = p.x*10 - (int)(c-'0'); break;
+        case 'N': p.y = p.y*10 + (int)(c-'0'); break;
+        case 'S': p.y = p.y*10 - (int)(c-'0'); break;
+      }
+      continue;
+    }
+    mode = ' ';
+  }
+  return p;
+}
+
 /************************************************/
 iPoint
 get_alt_rng(const ImageR & dem, const int step){
