@@ -32,6 +32,9 @@ main(int argc, char *argv[]){
       iPoint arng = get_alt_rng(alos);
       make_color_img(alos, arng, key + ".tif");
 
+      // same Ozi map-file
+//      make_ref(key + ".tif", alos.width(), alos.height());
+
       // save alos mask if any;
       make_alos_mask(ALOS_DIR + key + "_MSK.tif", key + "_msk.png");
 

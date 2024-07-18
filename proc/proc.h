@@ -36,4 +36,7 @@ ImageR rescale_aster(const ImageR & dem, const size_t w, const size_t h);
 // read ALOS mask (8-bit *_MSK.tif files) and save color image
 void make_alos_mask(const std::string & fname, const std::string & ofile);
 
+// make Ozi reference
+void make_ref(const std::string & fname, const size_t w, const size_t h);
+
 #endif

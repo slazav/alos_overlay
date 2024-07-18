@@ -10,6 +10,8 @@
 #include "image/image_r.h"
 #include "image/io.h"
 
+#include "geo_data/geo_io.h"
+
 #include "proc.h"
 
 iPoint
@@ -71,6 +73,8 @@ make_color_img(const ImageR & dem, const iPoint & arng, const std::string & fnam
   auto w = dem.width(), h = dem.height();
   ImageR cimg(w, h, IMAGE_32ARGB);
 
+  iPoint pt = parse_key(fname);
+
   Rainbow R(arng.x, arng.y, RAINBOW_NORMAL);
   for (size_t x = 0; x<w; x++){
     for (size_t y = 0; y<h; y++){
@@ -89,10 +93,10 @@ make_color_img(const ImageR & dem, const iPoint & arng, const std::string & fnam
       if (y>0)   {v3 = dem.get16(x,y-1); dy+=1;}
       if (y<h-1) {v4 = dem.get16(x,y+1); dy+=1;}
 
-//      double lat = key.y + 1.0 - y/tile.h;
+      double lat = pt.y + 1.0 - (double)y/h;
       dx *= 1.0/w * 6380e3 * M_PI/180;
       dy *= 1.0/h * 6380e3 * M_PI/180;
-//      d.x *= cos(M_PI*lat/180.0);
+      dx *= cos(M_PI*lat/180.0);
       double U = 0;
       if (dx!=0 && dy!=0) U = hypot((v2-v1)/dx, (v4-v3)/dy);
       U = atan(U)*180.0/M_PI;
@@ -203,3 +207,22 @@ make_alos_mask(const std::string & fname, const std::string & ofile){
   }
   image_save(imgc , ofile);
 }
+
+/************************************************/
+void
+make_ref(const std::string & fname, const size_t w, const size_t h){
+  GeoMap ref;
+  ref.name = ref.image = fname;
+  ref.proj = "WGS";
+  iPoint p0 = parse_key(fname);
+  for (const auto & pt: dLine("[[0,0],[1,0],[1,1],[0,1]]")){
+    dPoint pr(pt), pl(pt);
+    pr.y = 1-pr.y;
+    pr *= dPoint(w-1,h-1);
+    pl += p0;
+    ref.ref.emplace(pr, pl);
+    ref.border.add_point(pr);
+  }
+  write_ozi_map(fname + ".map", ref);
+}
+
