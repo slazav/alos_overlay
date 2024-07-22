@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+open(OUT, "> coverage.gpx") or die "can't open coverage.gpx: $!";
+print OUT "<?xml version='1.0' encoding='UTF-8'?>\n",
+          "<gpx version='1.1' creator='mapsoft-2'>\n",
+          "<trk>\n";
+
+opendir(DIR, ".") or die "cannot open directory: $!";
+my @files = grep(/\.ovl$/,readdir(DIR));
+foreach my $file (@files) {
+  die "bad file name: $file"
+    unless $file=~/([NS])(\d+)([EW])(\d+).ovl/;
+  my $lat = $2 * ($1 eq 'N'? +1:-1);
+  my $lon = $4 * ($3 eq 'E'? +1:-1);
+
+  print "  $file\n";
+
+  print OUT "  <trkseg>\n";
+  for (my $i = 0; $i<5; $i++){
+    printf OUT "    <trkpt lat='%f' lon='%.6f'/>\n",
+      $lat + ($i/2)%2, $lon + (($i+1)/2)%2;
+  }
+  print OUT "  </trkseg>\n";
+}
+print OUT "</trk>\n</gpx>\n";
