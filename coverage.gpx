@@ -107,6 +107,13 @@
     <trkpt lat='38.000000' lon='73.000000'/>
   </trkseg>
   <trkseg>
+    <trkpt lat='42.000000' lon='78.000000'/>
+    <trkpt lat='42.000000' lon='79.000000'/>
+    <trkpt lat='43.000000' lon='79.000000'/>
+    <trkpt lat='43.000000' lon='78.000000'/>
+    <trkpt lat='42.000000' lon='78.000000'/>
+  </trkseg>
+  <trkseg>
     <trkpt lat='39.000000' lon='67.000000'/>
     <trkpt lat='39.000000' lon='68.000000'/>
     <trkpt lat='40.000000' lon='68.000000'/>
@@ -140,6 +147,13 @@
     <trkpt lat='39.000000' lon='71.000000'/>
     <trkpt lat='39.000000' lon='70.000000'/>
     <trkpt lat='38.000000' lon='70.000000'/>
+  </trkseg>
+  <trkseg>
+    <trkpt lat='42.000000' lon='79.000000'/>
+    <trkpt lat='42.000000' lon='80.000000'/>
+    <trkpt lat='43.000000' lon='80.000000'/>
+    <trkpt lat='43.000000' lon='79.000000'/>
+    <trkpt lat='42.000000' lon='79.000000'/>
   </trkseg>
   <trkseg>
     <trkpt lat='65.000000' lon='59.000000'/>
@@ -205,6 +219,13 @@
     <trkpt lat='39.000000' lon='73.000000'/>
   </trkseg>
   <trkseg>
+    <trkpt lat='41.000000' lon='79.000000'/>
+    <trkpt lat='41.000000' lon='80.000000'/>
+    <trkpt lat='42.000000' lon='80.000000'/>
+    <trkpt lat='42.000000' lon='79.000000'/>
+    <trkpt lat='41.000000' lon='79.000000'/>
+  </trkseg>
+  <trkseg>
     <trkpt lat='37.000000' lon='73.000000'/>
     <trkpt lat='37.000000' lon='74.000000'/>
     <trkpt lat='38.000000' lon='74.000000'/>
@@ -254,6 +275,13 @@
     <trkpt lat='61.000000' lon='140.000000'/>
   </trkseg>
   <trkseg>
+    <trkpt lat='36.000000' lon='72.000000'/>
+    <trkpt lat='36.000000' lon='73.000000'/>
+    <trkpt lat='37.000000' lon='73.000000'/>
+    <trkpt lat='37.000000' lon='72.000000'/>
+    <trkpt lat='36.000000' lon='72.000000'/>
+  </trkseg>
+  <trkseg>
     <trkpt lat='61.000000' lon='142.000000'/>
     <trkpt lat='61.000000' lon='143.000000'/>
     <trkpt lat='62.000000' lon='143.000000'/>
@@ -282,11 +310,25 @@
     <trkpt lat='64.000000' lon='59.000000'/>
   </trkseg>
   <trkseg>
+    <trkpt lat='41.000000' lon='78.000000'/>
+    <trkpt lat='41.000000' lon='79.000000'/>
+    <trkpt lat='42.000000' lon='79.000000'/>
+    <trkpt lat='42.000000' lon='78.000000'/>
+    <trkpt lat='41.000000' lon='78.000000'/>
+  </trkseg>
+  <trkseg>
     <trkpt lat='65.000000' lon='143.000000'/>
     <trkpt lat='65.000000' lon='144.000000'/>
     <trkpt lat='66.000000' lon='144.000000'/>
     <trkpt lat='66.000000' lon='143.000000'/>
     <trkpt lat='65.000000' lon='143.000000'/>
+  </trkseg>
+  <trkseg>
+    <trkpt lat='36.000000' lon='73.000000'/>
+    <trkpt lat='36.000000' lon='74.000000'/>
+    <trkpt lat='37.000000' lon='74.000000'/>
+    <trkpt lat='37.000000' lon='73.000000'/>
+    <trkpt lat='36.000000' lon='73.000000'/>
   </trkseg>
   <trkseg>
     <trkpt lat='64.000000' lon='144.000000'/>
