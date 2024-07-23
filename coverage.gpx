@@ -100,6 +100,13 @@
     <trkpt lat='65.000000' lon='146.000000'/>
   </trkseg>
   <trkseg>
+    <trkpt lat='31.000000' lon='77.000000'/>
+    <trkpt lat='31.000000' lon='78.000000'/>
+    <trkpt lat='32.000000' lon='78.000000'/>
+    <trkpt lat='32.000000' lon='77.000000'/>
+    <trkpt lat='31.000000' lon='77.000000'/>
+  </trkseg>
+  <trkseg>
     <trkpt lat='38.000000' lon='73.000000'/>
     <trkpt lat='38.000000' lon='74.000000'/>
     <trkpt lat='39.000000' lon='74.000000'/>
@@ -119,6 +126,13 @@
     <trkpt lat='40.000000' lon='68.000000'/>
     <trkpt lat='40.000000' lon='67.000000'/>
     <trkpt lat='39.000000' lon='67.000000'/>
+  </trkseg>
+  <trkseg>
+    <trkpt lat='32.000000' lon='77.000000'/>
+    <trkpt lat='32.000000' lon='78.000000'/>
+    <trkpt lat='33.000000' lon='78.000000'/>
+    <trkpt lat='33.000000' lon='77.000000'/>
+    <trkpt lat='32.000000' lon='77.000000'/>
   </trkseg>
   <trkseg>
     <trkpt lat='64.000000' lon='60.000000'/>
