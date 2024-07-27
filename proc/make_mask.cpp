@@ -31,7 +31,7 @@ main(int argc, char *argv[]){
       auto w = img.width(), h = img.height();
       if (img.type()!=IMAGE_32ARGB) throw Err() << "wrong image type\n";
 
-      // save MASK image
+      // make MASK image using transparent areas in the image
       std::map<iPoint, int> ovl;
       ImageR msk(w,h, IMAGE_1);
       for (size_t x = 0; x<w; x++){
@@ -40,7 +40,6 @@ main(int argc, char *argv[]){
            msk.set1(x,y, v);
         }
       }
-      image_save(msk, key + ".png");
 
       // load alos and aster files
       ImageR alos = image_load(ALOS_DIR + key + ".tif");
@@ -49,7 +48,17 @@ main(int argc, char *argv[]){
       if (alos.width()!=w || alos.height()!=h)
         throw Err() << "bad image dimensions";
 
+      // update mask using undefined values in alos
+      for (size_t x = 0; x<w; x++){
+        for (size_t y = 0; y<h; y++){
+           auto v = alos.get_double(x,y);
+           if (v < -1000 || v > 10000) msk.set1(x,y, 1);
+        }
+      }
+      // save mask
+      image_save(msk, key + ".png");
 
+      // interpolate holes in the mask
       std::ofstream out(key + ".ovl");
       for (int16_t x = 0; x<w; x++){
         for (int16_t y = 0; y<h; y++){
