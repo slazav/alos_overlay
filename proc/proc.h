@@ -27,8 +27,11 @@ iPoint get_alt_rng(const ImageR & img, const int step=100);
 void make_color_img(const ImageR & dem,
    const iPoint & arng, const std::string & fname);
 
-// read mask from fname and apply to dem data
+// read mask from png file and apply to dem data
 void apply_mask(const std::string & fname, ImageR & dem);
+
+// read mask from ovl file and apply to dem data
+void apply_ovl(const std::string & fname, ImageR & dem);
 
 // rescale aster data to alos size (for example 3601x3601 -> 1800x3600)
 ImageR rescale_aster(const ImageR & dem, const size_t w, const size_t h);

@@ -133,6 +133,32 @@ apply_mask(const std::string & fname, ImageR & dem){
 }
 
 /************************************************/
+void
+apply_ovl(const std::string & fname, ImageR & dem){
+  if (!file_exists(fname)) return;
+  std::cerr << "  applying existing mask: ";
+
+  if (dem.type()!=IMAGE_16) throw Err() << "wrong DEM image type";
+  auto w = dem.width(), h = dem.height();
+
+  FILE *F = fopen(fname.c_str(), "rb");
+  if (F) {
+    size_t i=0;
+    while (!feof(F)){
+      int16_t x,y,v;
+      if (fread(&x, sizeof(x),1, F) &&
+          fread(&y, sizeof(y),1, F) &&
+          fread(&v, sizeof(v),1, F)){
+        dem.set16(x, y, -32768);
+        i++;
+      }
+    }
+    fclose(F);
+    std::cerr << i << " points\n";
+  }
+}
+
+/************************************************/
 ImageR
 rescale_aster(const ImageR & dem, const size_t w, const size_t h){
   if (dem.type()!=IMAGE_16) throw Err() << "wrong image type";

@@ -26,7 +26,8 @@ main(int argc, char *argv[]){
       ImageR alos = image_load(ALOS_DIR + key + ".tif");
 
       // apply mask if any
-      apply_mask("../" + key + ".png", alos);
+      apply_ovl("../" + key + ".ovl", alos);
+//      apply_mask("../" + key + ".png", alos);
 
       // calculate color range, make color image
       iPoint arng = get_alt_rng(alos);
