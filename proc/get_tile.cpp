@@ -9,7 +9,10 @@
 
 #include "image/image_r.h"
 #include "image/io.h"
+#include "srtm/srtm.h"
 #include "proc.h"
+
+ImageR read_zhgt_file(const std::string & file);
 
 int
 main(int argc, char *argv[]){
@@ -42,8 +45,13 @@ main(int argc, char *argv[]){
       // load aster tile
       ImageR aster = image_load(ASTER_DIR + key + ".tif");
       aster = rescale_aster(aster, alos.width(), alos.height());
-
       make_color_img(aster, arng, key + "_aster.tif");
+
+      // load vfp tile
+      ImageR vfp = read_zhgt_file(VFP_DIR + key + ".hgt.gz");
+      vfp = rescale_aster(vfp, alos.width(), alos.height());
+      make_color_img(vfp, arng, key + "_vfp.tif");
+
     }
   }
   catch (Err & e) {
